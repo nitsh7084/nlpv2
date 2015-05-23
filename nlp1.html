@@ -1,0 +1,46 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="nlp1.css" type="text/css" />
+</head>
+
+
+<body>
+
+<div class="container">
+<div class="wrapper">
+<div id="nl-form">
+I want to read a <select name="item_options" id="item_options">
+<option value="1">anything</option>
+<option value="2" selected>news</option>
+<option value="3">article</option>
+<option value="4">story</option>
+</select>
+posted in 
+<select name="time_options" id="time_options">
+<option value="1" selected>last 24 hours</option>
+<option value="2">last week</option>
+<option value="3">last month</option>
+<option value="4">last year</option>
+<option value="5" data-special="input" data-special-name="specify_date_input" data-special-value="DD-MM-YY">specify date</option>
+</select>
+authored by 
+<input type="text" id="author_input" value="College Ink" placeholder="Any Author" data-example="Like: College Ink" />
+</div>
+</div>
+
+</div>
+<div class="collegeink_search_overlay">
+
+</div>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="nlp1.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+
+new NLForm(document.getElementById('nl-form'));
+
+}
+</script>
+</body>
+</html>

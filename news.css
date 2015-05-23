@@ -1,0 +1,20 @@
+*{
+margin:0px;
+padding:0px;
+}
+@font-face{
+src:url('futura.ttf');
+font-family:'futura';
+}
+.container{
+height:100%;
+width:100%;
+background:#fff;
+}
+.title{
+padding:180px 70px;
+font-family:'futura';
+
+font-size:21px;
+color:rgba(0,0,0,.86);
+}

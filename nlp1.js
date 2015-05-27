@@ -25,7 +25,6 @@ Array.prototype.slice.call(this.inputs).forEach(function(el,i){
 self.list_fields.push(new NLField(self,el,'input',2));
 });
 
-
 this.overlay.addEventListener('click',function(){
 self.close_fields();
 });
@@ -143,6 +142,7 @@ this.form.overlay.style.visibility = 'visible';
 this.form.overlay.style.opacity = 1;
 this.div_wrapper.className += ' field_open';
 this.open = true;
+this.add_field_list_item_events();
 }
 else{
 this.close();
@@ -213,7 +213,7 @@ special_el.setAttribute('id',special_name);
 special_el.setAttribute('class',special_name);
 self.option_list.appendChild(special_el);
 }
-console.log(self.option_list);
+//console.log(self.option_list);
 el.addEventListener('click',function(){
 self.option_list.className += ' hide_list';
 var special_el = this.querySelector('.'+el.getAttribute('data-special-name'));
@@ -221,6 +221,28 @@ special_el.className = special_el.className.replace("hide_list","");
 special_el.className += ' show_list';
 });
 
+},
+
+
+change_input_value : function(val){
+
+     
+},
+
+add_field_list_item_events : function(){
+
+this.field_list_item = document.querySelectorAll('li.field_list_item');
+console.log(this.field_list_item);
+Array.prototype.slice.call(this.field_list_item).forEach(function(el,i){
+    
+el.addEventListener('click',function(){
+
+var val = this.innerText;
+console.log(val);    
+self.change_input_value(val);    
+});
+
+});    
 }
 
 }

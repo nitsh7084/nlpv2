@@ -29,7 +29,12 @@
   text-align: center;
   font-size: 36px;
   font-family: 'ProximaNovaLight';
-  color: #fff; }
+  color: #fff;
+  transition: all .8s ease 0s;
+  -webkit-transition: all .8s ease 0s;
+  -moz-transition: all .8s ease 0s;
+  -ms-transition: all .8s ease 0s;
+  -o-transition: all .8s ease 0s; }
 
 select {
   margin: 0px 12px;
@@ -81,30 +86,29 @@ input[type="text"]:not(.field_list_input_item) {
 .nlp_field ul {
   list-style-type: none;
   width: 100%;
-  color: #fff; }
+  overflow: hidden; }
 
 .nlp_field ul li {
   position: relative;
-  height: 23px;
   padding: 10px;
   padding-left: 19px;
   padding-right: 44px;
   font-size: 20px;
+  color: #fff;
   width: 100%;
   cursor: pointer;
-  font-family: 'ProximaNovaLight'; }
+  font-family: 'ProximaNovaLight';
+  overflow: hidden; }
 
 .input_field ul li {
   padding: 0px; }
-
-.input_field ul li {
-  height: 33px; }
 
 .field_list_input_item {
   height: 100%;
   width: 72%;
   margin: 0px;
-  padding: 24px;
+  padding: 24px 14px;
+  height: 24px;
   font-family: 'ProximaNovaLight';
   font-size: 16px; }
 
@@ -147,7 +151,6 @@ li.field_checked:after {
   font-size: 17px;
   height: 23px;
   padding: 12px;
-  padding-top: 32px;
   font-family: 'ProximaNovaLight'; }
 
 @-webkit-keyframes show_list {
@@ -163,5 +166,64 @@ li.field_checked:after {
 
 .hide_list {
   -webkit-animation: hide_list .3s ease forwards; }
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 12% auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .25s ease 0s;
+  -webkit-transition: all .25s ease 0s;
+  -moz-transition: all .25s ease 0s;
+  -ms-transition: all .25s ease 0s;
+  -o-transition: all .25s ease 0s; }
+
+.spinner.show {
+  opacity: 1;
+  pointer-events: auto; }
+
+.spinner.hide {
+  margin-top: 5%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease 0s;
+  -webkit-transition: all .3s ease 0s;
+  -moz-transition: all .3s ease 0s;
+  -ms-transition: all .3s ease 0s;
+  -o-transition: all .3s ease 0s; }
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out; }
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1); } }
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
+.wrapper.searching {
+  padding-top: 5%;
+  font-size: 28px; }
 
 /*# sourceMappingURL=nlp1.css.map */

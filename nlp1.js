@@ -8,6 +8,7 @@ this.selects = this.el.querySelectorAll('select');
 this.inputs = this.el.querySelectorAll('input');
 this.all = this.el.querySelectorAll('select, input');
 this.body = document.querySelector('body');
+this.field_list_item = document.querySelector('.nlp_field .field_list_item');
 this.list_fields = new Array();
 this.init();
 }
@@ -51,6 +52,9 @@ this.type = type;
 this.idx = idx;
 this.selectedIdx = 0;
 this.open = false;
+this.overlay = document.querySelector('.collegeink_search_overlay');
+this.wrapper = document.querySelector('.wrapper');
+this.spinner = document.querySelector('.spinner');
 this.init();
 this.init_events();
 }
@@ -75,6 +79,7 @@ this.div_wrapper.setAttribute('id',select_id);
 this.div_wrapper.className = 'dropdown_wrapper nlp_field';
 this.toggle = document.createElement('a');
 this.toggle.className = 'toggle_field';
+this.toggle.setAttribute('id','toggle_field_'+select_id);
 this.toggle.setAttribute('data-list-id',select_id);
 this.toggle.innerHTML = this.original.options[this.original.selectedIndex].innerHTML;
 this.selectedIdx = this.original.selectedIndex;
@@ -147,6 +152,15 @@ this.add_field_list_item_events();
 else{
 this.close();
 }
+
+/*
+this.field_list_item.addEventListener('click',function(e){
+e.stopPropagation();    
+    
+});
+*/
+
+
 },
 
 close : function(type,opts){
@@ -223,6 +237,31 @@ special_el.className += ' show_list';
 
 },
 
+close_overlay : function(){
+
+this.overlay.style.visibility = 'hidden';
+this.overlay.style.opacity = '0';    
+},
+
+
+close_input_fields : function(){
+
+Array.prototype.slice.call(document.querySelectorAll('.nlp_field')).forEach(function(el,i){
+
+console.log(el);
+el.classList.remove('field_open');    
+});    
+
+},
+
+
+close_all_fields : function(){
+  
+this.close_overlay();
+this.close_input_fields();    
+//this.start_searching();
+},
+
 
 change_input_value : function(val){
 
@@ -231,6 +270,7 @@ change_input_value : function(val){
 
 add_field_list_item_events : function(){
 
+var self = this;
 this.field_list_item = document.querySelectorAll('li.field_list_item');
 console.log(this.field_list_item);
 Array.prototype.slice.call(this.field_list_item).forEach(function(el,i){
@@ -238,11 +278,38 @@ Array.prototype.slice.call(this.field_list_item).forEach(function(el,i){
 el.addEventListener('click',function(){
 
 var val = this.innerText;
-console.log(val);    
-self.change_input_value(val);    
+
+Array.prototype.slice.call(self.field_list_item).forEach(function(el1,i1){
+el1.classList.remove('field_checked');
 });
 
-});    
-}
+el.classList.add('field_checked');
+var select_id = el.parentElement.parentElement.getAttribute('id');
+el.parentElement.parentElement.parentElement.querySelector('#toggle_field_'+select_id).innerText = val;
+self.change_input_value(val);   
+self.close_all_fields(); 
+});
+
+});
+    
+}, 
+
+
+start_searching : function(){
+
+var self = this;
+this.wrapper.classList.add('searching');  
+this.spinner.classList.add('show');  
+setTimeout(function(){
+self.show_search_results();    
+},1800);
+}, 
+
+
+show_search_results : function(){
+
+this.spinner.classList.add('hide');
+this.spinner.classList.remove('show');    
+} 
 
 }

@@ -288,6 +288,7 @@ var select_id = el.parentElement.parentElement.getAttribute('id');
 el.parentElement.parentElement.parentElement.querySelector('#toggle_field_'+select_id).innerText = val;
 self.change_input_value(val);   
 self.close_all_fields(); 
+self.start_searching();
 });
 
 });
@@ -309,7 +310,11 @@ self.show_search_results();
 show_search_results : function(){
 
 this.spinner.classList.add('hide');
-this.spinner.classList.remove('show');    
+this.spinner.classList.remove('show'); 
+Array.prototype.slice.call(document.querySelectorAll('.search_result_container')).forEach(function(el,i){
+ 
+el.classList.add('show'); 
+});   
 } 
 
 }

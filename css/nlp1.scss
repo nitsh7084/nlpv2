@@ -16,6 +16,11 @@ src:url('../font/ProximaNova-Reg.eot#iefix') format('embedded-opentype');
 src:url('../fonts/ProximaNova-Reg.woff') format('woff'), url('../fonts/ProximaNova-Reg.woff2') format('woff2');
 font-family:'ProximaNovaRegular';
 }
+@font-face{
+src:url('../font/ProximaNova-Bold.eot#iefix') format('embedded-opentype');
+src:url('../fonts/ProximaNova-Bold.woff') format('woff'), url('../fonts/ProximaNova-Bold.woff2') format('woff2');
+font-family:'ProximaNovaBold';
+}
 
 @mixin property1($prop,$val){
 #{$prop}:#{$val};
@@ -26,7 +31,7 @@ font-family:'ProximaNovaRegular';
 }
 
 .container{
-height:100%;
+min-height:100%;
 width:100%;
 background:#4C76CE;
 @include property1(perspective,'800px');
@@ -244,6 +249,53 @@ pointer-events:none;
 padding-top:5%;
 font-size:28px;
 }
-.search_results{
-
+.search_results_container{
+min-height:240px;
+width:84%;
+margin:0% 7% 0% 11%;
+margin-top:-18%;
+}
+.search_result_container{
+float:left;
+width:30%;
+height:300px; 
+margin-left:2%;
+margin-top:4%;
+overflow:hidden;
+opacity:0;
+pointer-events:none;
+}
+.search_result_container.show{
+opacity:1;
+pointer-events:auto;
+}
+.search_result_image{
+width:100%;
+height:140px;
+}
+.search_result_image img{
+width:240px;
+height:140px;
+}
+.search_result_info{
+padding:18px 0px;
+width:240px;
+}
+.search_result_name{
+width:100%;
+font-family:'ProximaNovaBold';
+font-size:16px;
+line-height:28px;
+color:#fff;
+text-transform:uppercase;
+}
+.search_result_author{
+padding-top:14px;
+font-family:'ProximaNovaRegular';
+font-size:17px;
+color:#fff;
+text-transform:uppercase;
+}
+.clear{
+clear:both;
 }

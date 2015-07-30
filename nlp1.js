@@ -1,4 +1,7 @@
 
+(function(){
+
+
 function NLForm(el){
 this.el = el;
 this.field_open = -1;
@@ -318,3 +321,6 @@ el.classList.add('show');
 } 
 
 }
+
+
+})();

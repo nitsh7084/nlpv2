@@ -289,6 +289,12 @@ var select_id = el.parentElement.parentElement.getAttribute('id');
 el.parentElement.parentElement.parentElement.querySelector('#toggle_field_'+select_id).innerText = val;
 self.change_input_value(val);   
 self.close_all_fields(); 
+
+Array.prototype.slice.call(document.querySelectorAll('.search_result_container')).forEach(function(el,i){
+ 
+el.classList.remove('show'); 
+}); 
+
 self.start_searching();
 });
 
@@ -300,6 +306,7 @@ self.start_searching();
 start_searching : function(){
 
 var self = this;
+this.spinner.classList.remove('hide');
 this.wrapper.classList.add('searching');  
 this.spinner.classList.add('show');  
 setTimeout(function(){

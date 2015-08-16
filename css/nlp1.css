@@ -21,6 +21,7 @@
   min-height: 100%;
   width: 100%;
   background: #4C76CE;
+  padding-bottom: 72px;
   perspective: 800px;
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
@@ -127,7 +128,8 @@ input[type="text"]:not(.field_list_input_item) {
   border: none;
   color: #fff;
   font-family: 'ProximaNovaLight';
-  font-size: 16px; }
+  font-size: 16px;
+  cursor: pointer; }
 
 li.field_checked {
   color: rgba(0, 0, 0, 0.78); }

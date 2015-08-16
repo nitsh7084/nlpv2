@@ -34,6 +34,7 @@ font-family:'ProximaNovaBold';
 min-height:100%;
 width:100%;
 background:#4C76CE;
+padding-bottom:72px;
 @include property1(perspective,'800px');
 }
 .wrapper{
@@ -129,6 +130,7 @@ border:none;
 color:#fff;
 font-family:'ProximaNovaLight';
 font-size:16px;
+cursor:pointer;
 }
 li.field_checked{
 color:rgba(0,0,0,.78);

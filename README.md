@@ -1,3 +1,3 @@
 # nlpv2
-A better, more usable nlp script!
+A search page enabled with natural language processing
 [DEMO](http://www.amituslab.com/NLP/nlp1.html)

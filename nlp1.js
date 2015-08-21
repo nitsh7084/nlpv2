@@ -1,4 +1,5 @@
 
+(function(){
 
 function NLForm(el){
 this.el = el;
@@ -326,3 +327,8 @@ el.classList.add('show');
 } 
 
 }
+
+
+new NLForm(document.getElementById('nl-form'));
+
+})();

@@ -331,4 +331,4 @@ el.classList.add('show');
 
 new NLForm(document.getElementById('nl-form'));
 
-})();
+})(undefined);
